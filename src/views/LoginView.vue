@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import Logo from '@/components/Logo.vue';
 import { Button, Divider, InputText } from 'primevue';
 
@@ -14,8 +14,8 @@ import { Button, Divider, InputText } from 'primevue';
 
         <section class="flex flex-col items-center justify-center gap-3 py-5 w-full">
             <div class="flex flex-col gap-2 w-full">
-                <label for="username">Username</label>
-                <InputText id="username" type="text" />
+                <label for="email">Email</label>
+                <InputText id="email" type="text" />
             </div>
             <div class="flex flex-col gap-2 w-full">
                 <label for="password">Password</label>
@@ -32,4 +32,3 @@ import { Button, Divider, InputText } from 'primevue';
       </section>
     </div>
 </template>
-<!-- https://primevue.org/datepicker/ -->
