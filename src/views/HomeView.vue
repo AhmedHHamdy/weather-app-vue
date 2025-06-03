@@ -195,9 +195,12 @@ const location = ref("London")
 
 const onsubmit = async () => {
   try {
-    const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${location.value.toLocaleLowerCase()}&appid=&units=metric`)
-    console.log(response, "ds")
-    state.weatherData.weatherObj = response.data
+    const responseWeather = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${location.value.toLocaleLowerCase()}&appid=&units=metric`)
+    const responseForecast = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${location.value.toLocaleLowerCase()}&appid=&units=metric`)
+    console.log(responseWeather, "ds")
+    console.log(responseForecast, "responseForecast")
+    state.weatherData.weatherObj = responseWeather.data
+    state.weatherData.forecastObj = responseForecast.data
   } catch (error) {
     console.log(error)
   }
@@ -214,8 +217,7 @@ const onsubmit = async () => {
           <InputText type="text" v-model="location" />
           <Button type="submit" icon="pi pi-search" iconPos="top" />
         </form>
-        <h2 class="bg-black px-2 py-1 text-lg border-2 border-gray-500 rounded-md cursor-pointer">{{
-          dayjs(state.weatherData.date).format('DD/MM/YYYY') }}</h2>
+        <h2 class="bg-black px-2 py-1 text-lg border-2 border-gray-500 rounded-md cursor-pointer">{{ dayjs(state.weatherData.date).format('DD/MM/YYYY') }}</h2>
       </section>
 
       <section>
@@ -255,7 +257,7 @@ const onsubmit = async () => {
           </section>
         </section>
 
-        <section class="flex flex-col md:flex-row w-full mt-10 gap-4 md:justify-between">
+        <section class="flex flex-col md:flex-row w-full mt-10 gap-4 md:justify-between overflow-x-auto">
           
           <section v-for="(day, index) in state.weatherData.forecastObj.list" :key="index">
             <h4 class="text-center">{{ dayjs(new Date(day.dt * 1000)).format("ddd, h:mm A") }}</h4>
@@ -263,8 +265,8 @@ const onsubmit = async () => {
               <Sun />
             </section>
             <section class="flex justify-between items-center gap-4">
-              <span>{{ day.main.temp_max}}°C</span>
-              <span>{{ day.main.temp_min}}°C</span>
+              <span>{{ day.main.temp_max }}°C</span>
+              <span>{{ day.main.temp_min }}°C</span>
             </section>
           </section>
 
@@ -273,3 +275,4 @@ const onsubmit = async () => {
     </section>
   </main>
 </template>
+<!-- https://www.reshot.com/free-svg-icons/item/fire-sun-JMX5U8WPCN/ -->
