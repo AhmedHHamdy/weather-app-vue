@@ -40,7 +40,7 @@ const items = ref([
       </template>
       <template #end>
           <div class="flex items-center gap-2">
-              <InputText placeholder="Search" type="text" class="w-32 sm:w-auto" />
+              <!-- <InputText placeholder="Search" type="text" class="w-32 sm:w-auto" /> -->
               <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
           </div>
       </template>
