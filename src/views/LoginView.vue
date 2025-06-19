@@ -23,13 +23,6 @@ const state = reactive({
         <h1 class="text-start text-2xl text-green-300 uppercase font-bold">CloudWise</h1>
         <Logo />
       </section>
-  <div class="h-full flex justify-center items-center">
-    <section class="w-full md:w-8/12 lg:w-8/12 xl:w-4/12 flex flex-col justify-center items-center bg-[#18181B] p-10">
-      <section class="flex items-center gap-2">
-        <h1 class="text-start text-2xl text-green-300 uppercase font-bold">CloudWise</h1>
-        <Logo />
-      </section>
-
       <section class="flex flex-col items-center justify-center gap-3 py-5 w-full">
         <div class="flex flex-col gap-2 w-full">
           <label for="email">Email</label>
