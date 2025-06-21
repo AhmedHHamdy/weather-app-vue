@@ -20,18 +20,25 @@ export const useAuthStore = defineStore('auth', () => {
       const accountResponse = await account.get()
       user.value = accountResponse
       router.push("/dashboard")
+<<<<<<< HEAD
       return {
         success: true
       }
+=======
+>>>>>>> 3caeb6844dabb3d1e2defdc846bac9c9a509a034
     } catch (error) {
       console.error(error)
       if (error instanceof Error) {
         errorValue.value = error
       }
+<<<<<<< HEAD
       return { success: false, error }
     } finally {
       isLoading.value = false
     }
+=======
+    }  
+>>>>>>> 3caeb6844dabb3d1e2defdc846bac9c9a509a034
   }
 
   const signup = async (credentials: {name: string, email: string, password: string }) => {
@@ -43,9 +50,12 @@ export const useAuthStore = defineStore('auth', () => {
       await login({email: credentials.email, password: credentials.password})
       const accountResponse = await account.get()
       user.value = accountResponse
+<<<<<<< HEAD
       return {
         success: true
       }
+=======
+>>>>>>> 3caeb6844dabb3d1e2defdc846bac9c9a509a034
     } catch (error) {
       console.error(error)
       if (error instanceof Error) {
